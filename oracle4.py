@@ -36,3 +36,5 @@ cursor.execute(sql)
 df = pd.read_sql(sql, con = connect)
 
 print(df)
+
+df.to_csv('test.txt', header=None, index=False, sep='\t')
