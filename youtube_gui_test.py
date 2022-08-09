@@ -2,20 +2,23 @@ from pytube import YouTube
 from tkinter import *
 
 def btncmd():
-    yt = YouTube(entry1.get())
-    print(yt.title)
-    label2.config(text = "Title: " + yt.title)
-    print(yt.length)
-    label3.config(text = "Length: " + str(yt.length))
-    print(yt.rating)
-    label4.config(text = "Rating: " + str(yt.rating))
-    Label6.config(text = "Author: " + str(yt.author))
-    Label7.config(text = "Publish Date: " + str(yt.publish_date))
-    Label8.config(text = "Description: " + str(yt.description))
-    yt.streams.first().download()
-    print("Success!")
-    label5.config(text = "Success!")
-
+    try:
+        yt = YouTube(entry1.get())
+        print(yt.title)
+        label2.config(text = "Title: " + yt.title)
+        print(yt.length)
+        label3.config(text = "Length: " + str(yt.length))
+        print(yt.rating)
+        label4.config(text = "Rating: " + str(yt.rating))
+        Label6.config(text = "Author: " + str(yt.author))
+        Label7.config(text = "Publish Date: " + str(yt.publish_date))
+        Label8.config(text = "Description: " + str(yt.description))
+        yt.streams.first().download()
+        print("Success!")
+        label5.config(text = "Success!")
+    except Exception as e:
+        print(e)
+        label5.config(text = str(e))
 def closecmd():
     quit()
 
@@ -33,11 +36,11 @@ entrylabel.pack()
 entry1 = Entry(root, width=30, border=1, relief='solid')
 entry1.pack()
 
-entrylabel2 = Label(root, text="File Name")
-entrylabel2.pack()
+#entrylabel2 = Label(root, text="File Name")
+#entrylabel2.pack()
 
-entry2 = Entry(root, width=30, border=1, relief='solid')
-entry2.pack()
+#entry2 = Entry(root, width=30, border=1, relief='solid')
+#entry2.pack()
 
 btn1 = Button(root, text="Download", command=btncmd)
 btn1.pack()
