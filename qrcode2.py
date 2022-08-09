@@ -8,4 +8,4 @@ qr_gen.save(savefilename)
 
 print(qr_gen) 
 print(qr_gen.size)
-                      
+
