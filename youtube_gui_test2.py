@@ -1,5 +1,5 @@
 from tkinter import messagebox
-from tkinter import filedialog
+
 from pytube import YouTube
 from tkinter import *
 
@@ -14,14 +14,9 @@ def btncmd():
         label4.config(text = "Rating: " + str(yt.rating))
         Label6.config(text = "Author: " + str(yt.author))
         Label7.config(text = "Publish Date: " + str(yt.publish_date))
-        root = Tk().withdraw()
-        title = 'save youtube vidoes as'
-        ftypes = []
-        filename = filedialog.asksaveasfilename(filetypes=ftypes, title=title, initialfile=yt.title)
-        #print(filename)
-        print(yt.streams.get_highest_resolution())
-        yt.streams.get_highest_resolution().download(filename, "video.mp4")
-        #print("Success!")
+        #Label8.config(text = "Description: " + str(yt.description))
+        yt.streams.first().download()
+        print("Success!")
         messagebox.showinfo("Message", "Success!")
         label5.config(text = "Success!")
     except Exception as e:
