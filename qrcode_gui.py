@@ -1,20 +1,25 @@
 from tkinter import messagebox
 import qrcode
 from tkinter import *
+from tkinter import filedialog
 
 def btncommand():
     try:
         img_url = entry2.get()
         filename = entry1.get()
         qr_gen = qrcode.make(img_url)
-        qr_gen.save(filename)
+        root = Tk().withdraw()
+        title = 'Save QR Code As...'
+        ftypes = [("PNG Files(*.png)", "*.png"), ("JPEG Files(*.jpg)", "*.jpg"), ("Bitmap Files(*.bmp)", "*.bmp"), ("All Files(*.*)", "*.*")]
+        filename2 = filedialog.asksaveasfilename(filetypes=ftypes, title=title, initialfile=filename)
+        qr_gen.save(filename2)
         Label5.config(text = "Result: Success")
         messagebox.showinfo("Message", "Success!")
     except Exception as e:
         Label5.config(text = "Result: Failed")
         messagebox.showerror("Message", e)
 def closecommand():
-    quit()
+    sys.exit()
 
 root = Tk()
 root.title("Python QR Code Generator v0.1")

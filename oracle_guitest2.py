@@ -27,7 +27,7 @@ def btncmd():
         Label6.config(text="Status: " + str(e))
         messagebox.showerror("Message", e)
 def closecmd():
-    quit()
+    sys.exit()
 
 root = Tk()
 

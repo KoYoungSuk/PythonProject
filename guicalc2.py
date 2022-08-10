@@ -29,7 +29,7 @@ def dividebutton():
     except Exception as e:
        ResultLabel.config(text = "Result: " + str(e))
 def closebutton():
-    quit()
+    sys.exit()
 
 
 root = Tk()

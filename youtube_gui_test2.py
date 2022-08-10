@@ -29,7 +29,7 @@ def btncmd():
         messagebox.showinfo("Message", e)
         label5.config(text = "Error")
 def closecmd():
-    quit()
+    sys.exit()
 
 root = Tk()
 root.title("Python GUI YouTube Download(Test Only)")
