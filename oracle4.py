@@ -37,4 +37,5 @@ df = pd.read_sql(sql, con = connect)
 
 print(df)
 
-df.to_csv('test.txt', header=None, index=False, sep='\t')
+txtfilename = input('SAVE AS TXT DOCUMENT: ')
+df.to_csv(txtfilename, header=None, index=False, sep='\t')
