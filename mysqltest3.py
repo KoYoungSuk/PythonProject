@@ -1,5 +1,6 @@
 import pymysql as mysql
 import getpass
+import pandas as pd
 
 address = input('MySQL DataBase Address: ')
 id = input("MySQL DataBase ID: ")
@@ -19,8 +20,14 @@ firstsql = sql.split()
 if(firstsql[0] == 'select'):
     for row in cur:
         print(row)
+    print("===============================================")
+    #pd.read_sql(sql, con=conn)
+    print(pd.read_sql(sql, con=conn))
 else:
     print("Success!")
 
+
 conn.commit()
 conn.close()
+
+print("===================================================")
